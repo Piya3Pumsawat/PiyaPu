@@ -17,3 +17,10 @@
 
 ```javascript
 let a = 10;
+
+docker login ghcr.io -u USERNAME -p ghp_vCTSGlIZJ7v9GAMOQijN6I0IQvF4091eL56
+
+`````````
+docker push ghdcr.io/NAMESPACE/IMAGE_
+
+docker push ghdcr.io/Piya3Pumsawat/PiyaPu:latest
