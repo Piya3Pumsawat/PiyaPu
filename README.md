@@ -15,5 +15,5 @@
 1. two
 1. three
 
-``javascript``
+```javascript
 let a = 10;
