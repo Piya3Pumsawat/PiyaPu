@@ -1,0 +1,11 @@
+version '3'
+services:
+   mydb:
+    image: mysql
+    enviromment:
+     - MYSQL_ROOT_PASSWORD=root1234
+     - MYSQL_DATABASE=test_db
+     - MYSQL_USER=test
+     - MYSQL_PASSWORD=12345678
+    voumes:
+     - ./data/mysql:/var/lib/mysql
