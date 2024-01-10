@@ -66,4 +66,6 @@ minikube status
 kubectl get node
 
 
+
+
   ````````````````
