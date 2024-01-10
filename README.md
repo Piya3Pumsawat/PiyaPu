@@ -49,14 +49,21 @@ docker rm -f some-nginx
 version '3'
 services:
 my
-jenkins:
-  container_name: jenkins
-  image: jenkins
-  - ./jenkins:/var/jenkins_home
-  ports:
-  - 8080:8080
-  - 5000:5000
-ubuntu:
-  container_name: ubuntu14
-  image: "ubuntu:14.04"
+ jenkins:
+   container_name: jenkins
+   image: jenkins
+   - ./jenkins:/var/jenkins_home
+   ports:
+   - 8080:8080
+   - 5000:5000
+ ubuntu:
+   container_name: ubuntu14
+   image: "ubuntu:14.04"
+   
+````````````````
+ minikube start
+minikube status
+kubectl get node
+
+
   ````````````````
