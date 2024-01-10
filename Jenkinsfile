@@ -15,5 +15,20 @@ pipeline{
                 sh "docker build -t ghcr.io/pumpiya/piyapu ."
             }
         }
+        stage('Deliver Docker Image') {
+            agent {label 'build-server'}
+            steps {
+                withCredentials(
+                [usernamePassword(
+                    credentialsId: 'Piyapu',
+                    passwordVariable: 'gitlabPassword',
+                    usernameVariable: 'gitlabUser'
+                )]
+            ){
+                sh "docker login ghcr.io -u ${env.gitlabUser} -p ${env.gitlabPassword}"
+                sh "docker push ${env.IMAGE_NAME}:${env.BUILD_NUMBER}"
+            }
+            }
+        }
     }
 }
