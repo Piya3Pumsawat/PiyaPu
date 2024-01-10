@@ -26,7 +26,7 @@ pipeline{
                 )]
             ){
                 sh "docker login ghcr.io -u ${env.gitlabUser} -p ${env.gitlabPassword}"
-                sh "docker push ${env.IMAGE_NAME}:${env.BUILD_NUMBER}"
+                sh "docker push ghcr.io/pumpiya/piyapu"
             }
             }
         }
