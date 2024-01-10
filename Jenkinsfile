@@ -2,7 +2,7 @@ pipeline{
     agent any
     environment {
         APP_NAME = "test app name"
-        IMAGE_NAME "ghcr.io/pumpiya/piyapu"
+        IMAGE_NAME = "ghcr.io/pumpiya/piyapu"
     }
     stages {
         stage('Build Image'){
