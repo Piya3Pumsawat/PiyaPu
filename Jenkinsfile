@@ -11,7 +11,7 @@ pipeline{
         }
         stage('Build Stage (Docker)'){
             steps {
-                sh "Docker Build -t ghcr.io/piyapu/piyapu ."
+                sh "Docker Build -t ghcr.io/pumpiya/piyapu ."
             }
         }
     }
