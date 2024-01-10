@@ -10,6 +10,7 @@ pipeline{
             }
         }
         stage('Build Stage (Docker)'){
+            agent {label 'build-server'}
             steps {
                 sh "Docker Build -t ghcr.io/pumpiya/piyapu ."
             }
