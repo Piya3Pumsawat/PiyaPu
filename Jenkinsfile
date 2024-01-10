@@ -9,7 +9,7 @@ pipeline{
                 sh "echo ${env.APP_NAME}"
             }
         }
-        stage('Build Stage (Docker)'){
+        stage('Build Stage (Docker)') {
             agent {label 'build-server'}
             steps {
                 sh "Docker Build -t ghcr.io/pumpiya/piyapu ."
