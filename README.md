@@ -18,7 +18,7 @@
 ```javascript
 let a = 10;
 
-docker login ghcr.io -u USERNAME -p ghp_vCTSGlIZJ7v9GAMOQijN6I0IQvF4091eL56
+docker login ghcr.io -u USERNAME -p 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
 
 `````````
 docker push ghdcr.io/NAMESPACE/IMAGE_

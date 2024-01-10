@@ -2,6 +2,7 @@ pipeline{
     agent any
     environment {
         APP_NAME = "test app name"
+        IMAGE_NAME "ghcr.io/pumpiya/piyapu"
     }
     stages {
         stage('Build Image'){
@@ -12,7 +13,7 @@ pipeline{
         stage('Build Stage (Docker)'){
             agent {label 'build-server'}
             steps {
-                sh "docker build -t ghcr.io/pumpiya/piyapu ."
+                sh "docker build -t ${env.IMGE_NAME} ."
             }
         }
         stage('Deliver Docker Image') {
@@ -23,11 +24,15 @@ pipeline{
                     credentialsId: 'Piyapu',
                     passwordVariable: 'gitlabPassword',
                     usernameVariable: 'gitlabUser'
-                )]
-            ){
-                sh "docker login ghcr.io -u ${env.gitlabUser} -p ${env.gitlabPassword}"
-                sh "docker push ghcr.io/pumpiya/piyapu"
-            }
+                )])
+                {
+                    sh "docker login ghcr.io -u ${env.gitlabUser} -p ${env.gitlabPassword}"
+                    sh "docker tag ${env.IMGE_NAME} ${env.IMGE_NAME}:${env.BUILD_NUMBER}"
+                    sh "docker push ${env.IMGE_NAME}"
+                    sh "docker push ${env.IMGE_NAME}:${env.BUILD_NUMBER}"
+                    sh "docker rmi ${env.IMGE_NAME}"
+                    sh "docker rmi ${env.IMGE_NAME}:${env.BUILD_NUMBER}"
+                }
             }
         }
     }
