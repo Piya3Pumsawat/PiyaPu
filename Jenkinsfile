@@ -13,7 +13,7 @@ pipeline{
         stage('Build Stage (Docker)'){
             agent {label 'build-server'}
             steps {
-                sh "docker build -t ${env.IMGE_NAME} ."
+                sh "docker build -t ${env.IMAGE_NAME} ."
             }
         }
         stage('Deliver Docker Image') {
@@ -27,11 +27,11 @@ pipeline{
                 )])
                 {
                     sh "docker login ghcr.io -u ${env.gitlabUser} -p ${env.gitlabPassword}"
-                    sh "docker tag ${env.IMGE_NAME} ${env.IMGE_NAME}:${env.BUILD_NUMBER}"
-                    sh "docker push ${env.IMGE_NAME}"
-                    sh "docker push ${env.IMGE_NAME}:${env.BUILD_NUMBER}"
-                    sh "docker rmi ${env.IMGE_NAME}"
-                    sh "docker rmi ${env.IMGE_NAME}:${env.BUILD_NUMBER}"
+                    sh "docker tag ${env.IMAGE_NAME} ${env.IMAGE_NAME}:${env.BUILD_NUMBER}"
+                    sh "docker push ${env.IMAGE_NAME}"
+                    sh "docker push ${env.IMAGE_NAME}:${env.BUILD_NUMBER}"
+                    sh "docker rmi ${env.IMAGE_NAME}"
+                    sh "docker rmi ${env.IMAGE_NAME}:${env.BUILD_NUMBER}"
                 }
             }
         }
