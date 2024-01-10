@@ -31,7 +31,7 @@ pipeline{
                     sh "docker push ${env.IMGE_NAME}"
                     sh "docker push ${env.IMGE_NAME}:${env.BUILD_NUMBER}"
                     sh "docker rmi ${env.IMGE_NAME}"
-                    sh "docker rmi ${env.IMGE_NAME}:${env.BUILD_NUMBER}"
+                    sh "docker rmi ${env.IMGE_NAME}:${env.BUILD_NUMBER_}"
                 }
             }
         }
