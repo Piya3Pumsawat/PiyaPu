@@ -1,5 +1,5 @@
 pipeline{
-    angent any
+    agent any
     environment {
         APP_NAME = "test app name"
     }
