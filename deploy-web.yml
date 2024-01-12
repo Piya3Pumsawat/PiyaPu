@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pumsa-piya
+  name: user12
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pumsa-piya
+      app: user12
   template:
     metadata:
       labels:
-        app: pumsa-piya
+        app: user12
     spec:
       containers:
-        - name: pumsa-piya-server
+        - name: user12-server
           image: ghcr.io/pumpiya/piyapu
           ports:
             - containerPort: 80
@@ -21,12 +21,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: pumsa-piya-service
+  name: user12-service
   labels:
-    app: pumsa-piya-service
+    app: user12-service
 spec:
   selector:
-    app: pumsa-piya
+    app: user12
   ports:
     - name: web-port
       protocol: TCP
