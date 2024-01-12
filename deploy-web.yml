@@ -15,6 +15,7 @@ spec:
       containers:
         - name: user12-server
           image: ghcr.io/pumpiya/piyapu
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
 ---
